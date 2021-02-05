@@ -1,0 +1,36 @@
+<div>
+  <h1>Page-2</h1>
+</div>
+
+<cdk-virtual-scroll-viewport class="content" itemSize="72" #scroller>
+  <mat-list>
+    <ng-container *cdkVirtualFor="let item of listItems">
+      <mat-list-item>
+        <img matListAvatar [src]="item.image">
+        <h3 matLine> {{item.title}} </h3>
+        <p matLine>
+          <span> {{item.content}} </span>
+        </p>
+        <button mat-icon-button [matMenuTriggerFor]="itemMenu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </ng-container>
+    <div class="spinner-item">
+      <mat-progress-spinner [mode]="'indeterminate'" [diameter]="50"></mat-progress-spinner>
+    </div>
+  </mat-list>
+</cdk-virtual-scroll-viewport>
+
+<mat-menu #itemMenu="matMenu">
+  <button mat-menu-item>
+    Option 1
+  </button>
+  <button mat-menu-item>
+    Option 2
+  </button>
+  <button mat-menu-item>
+    Option 3
+  </button>
+</mat-menu>
